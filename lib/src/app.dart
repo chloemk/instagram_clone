@@ -8,12 +8,47 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
         child: Scaffold(
+          backgroundColor: Colors.red,
           appBar: AppBar(),
           body: Container(),
           bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            currentIndex: 0,
+            elevation: 0,
+            onTap: (value) {
+              // TODO GetX로 구현할 예정
+            },
             items: [
               BottomNavigationBarItem(
-                icon: ImageData('assets/images/add_friend_icon.jpg'),
+                icon: ImageData(IconsPath.homeOff),
+                activeIcon: ImageData(IconsPath.homeOn),
+                label: 'home',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageData(IconsPath.searchOff),
+                activeIcon: ImageData(IconsPath.searchOn),
+                label: 'home',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageData(IconsPath.uploadIcon),
+                label: 'home',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageData(IconsPath.activeOff),
+                activeIcon: ImageData(IconsPath.activeOn),
+                label: 'home',
+              ),
+              BottomNavigationBarItem(
+                icon: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.grey,
+                    )),
+                label: 'home',
               ),
             ],
           ),
