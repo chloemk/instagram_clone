@@ -51,10 +51,11 @@ class BottomNavController extends GetxController {
           context: Get.context!,
           builder: (context) => MessagePopup(
                 title: '시스템',
-                message: '종료하시겠습니끼?',
+                message: '종료하시겠습니까?',
                 okCallback: () {
                   exit(0);
                 },
+                cancelCallback: Get.back,
               ));
       return true;
     } else {
