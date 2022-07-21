@@ -21,9 +21,7 @@ class App extends GetView<BottomNavController> {
             showUnselectedLabels: false,
             currentIndex: controller.pageIndex.value,
             elevation: 0,
-            onTap: (value) {
-              // TODO GetX로 구현할 예정
-            },
+            onTap: controller.changeBottomNav,
             items: [
               BottomNavigationBarItem(
                 icon: ImageData(IconsPath.homeOff),
