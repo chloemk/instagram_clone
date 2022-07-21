@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:instagram_clone/src/components/image_data.dart';
+import 'package:instagram_clone/src/controller/bottom_nav_controller.dart';
 
-class App extends StatelessWidget {
+// BottomNavController에 있는 어떤 nav 컨트롤러가 인스턴스로 등록되어있을 때 접근할 수 있다.
+// BottomNavController 인스스로 올라가기 위해서는 GetX에 put 해줘야한다.
+class App extends GetView<BottomNavController> {
   const App({Key? key}) : super(key: key);
 
   @override
@@ -15,7 +19,7 @@ class App extends StatelessWidget {
             type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: false,
-            currentIndex: 0,
+            currentIndex: controller.pageIndex.value,
             elevation: 0,
             onTap: (value) {
               // TODO GetX로 구현할 예정
