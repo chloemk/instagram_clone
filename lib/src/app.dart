@@ -14,7 +14,27 @@ class App extends GetView<BottomNavController> {
         child: Obx(
           () => Scaffold(
             appBar: AppBar(),
-            body: Container(),
+            // 페이지를 다양하게 처리할 수 있는 위젯
+            body: IndexedStack(
+              index: controller.pageIndex.value,
+              children: <Widget>[
+                Container(
+                  child: Center(child: Text('HOME')),
+                ),
+                Container(
+                  child: Center(child: Text('SEARCH')),
+                ),
+                Container(
+                  child: Center(child: Text('UPLOAD')),
+                ),
+                Container(
+                  child: Center(child: Text('ACTIVITY')),
+                ),
+                Container(
+                  child: Center(child: Text('MYPAGE')),
+                )
+              ],
+            ),
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               showSelectedLabels: false,
