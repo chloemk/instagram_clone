@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/src/components/avatar_widget.dart';
 import 'package:instagram_clone/src/components/image_data.dart';
@@ -87,17 +88,31 @@ class PostWidget extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const [
-          Text(
+        children: [
+          const Text(
             '좋아요 150개',
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),
           ),
-          Text(
-            '요즘 핫플 #No.35',
-            style: TextStyle(),
-          ),
+          ExpandableText(
+            '요즘 핫플!!\n요즘 핫플!!\n요즘 핫플!!\n요즘 핫플!!\n요즘 핫플!!\n ',
+            prefixText: 'ch_1234',
+            prefixStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+            // TODO : 텍스트 중 #이 포함되어 있다면 그 단어를 파랑색 글자로 변경 (해시태그)
+            expandText: '더보기',
+            collapseText: '접기',
+            linkColor: Colors.grey,
+            maxLines: 3,
+            expandOnTextTap: true,
+            collapseOnTextTap: true,
+            // TODO : 닉네임을 누르면 내 피드로 이동
+            onPrefixTap: () {
+              print('ch_1234 내 피드로 이동');
+            },
+          )
         ],
       ),
     );
