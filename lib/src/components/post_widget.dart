@@ -136,6 +136,21 @@ class PostWidget extends StatelessWidget {
     );
   }
 
+  Widget _dateAgo() {
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 15,
+      ),
+      child: Text(
+        '1일전',
+        style: TextStyle(
+          color: Colors.grey,
+          fontSize: 12,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -159,7 +174,13 @@ class PostWidget extends StatelessWidget {
             height: 10,
           ),
           _replyTextBtn(),
+          const SizedBox(
+            height: 10,
+          ),
           _dateAgo(),
+          const SizedBox(
+            height: 10,
+          ),
         ],
       ),
     );
