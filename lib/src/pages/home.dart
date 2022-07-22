@@ -14,7 +14,8 @@ class Home extends StatelessWidget {
           100,
           (index) => AvatarWidget(
             type: AvatarType.STORYAVATAR,
-            thumbPath: '',
+            thumbPath:
+                'https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg',
           ),
         ),
       ),
