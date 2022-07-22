@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/src/components/avatar_widget.dart';
 import 'package:instagram_clone/src/components/image_data.dart';
+import 'package:instagram_clone/src/components/post_widget.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,13 +12,13 @@ class Home extends StatelessWidget {
         AvatarWidget(
           type: AvatarType.MYSTORYAVATAR,
           thumbPath:
-              'https://backlightblog.com/images/2020/10/blur-photo-background-header.jpg',
+              'https://i.pinimg.com/originals/d5/45/a2/d545a2343d19f3ce8af9e9aa52dd3fce.jpg',
           size: 70,
         ),
         // 플러스 버튼
         Positioned(
           bottom: 0,
-          right: 0,
+          right: 3,
           child: Container(
             padding: const EdgeInsets.all(2),
             decoration: BoxDecoration(
@@ -26,8 +27,8 @@ class Home extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
               child: Container(
                 color: Colors.blue,
-                height: 27,
-                width: 27,
+                height: 25,
+                width: 25,
                 child: const Icon(
                   Icons.add,
                   color: Colors.white,
@@ -58,12 +59,17 @@ class Home extends StatelessWidget {
             ...List.generate(
               100,
               (index) => AvatarWidget(
-                type: AvatarType.STORYAVATAR,
-                thumbPath:
-                    'https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg',
-              ),
+                  type: AvatarType.STORYAVATAR,
+                  thumbPath:
+                      'https://backlightblog.com/images/2020/10/blur-photo-background-header.jpg'),
             ),
           ]),
+    );
+  }
+
+  Widget _postList() {
+    return Column(
+      children: List.generate(50, (index) => const PostWidget()).toList(),
     );
   }
 
@@ -100,7 +106,7 @@ class Home extends StatelessWidget {
         body: ListView(
           children: [
             _storyBoardList(),
-            // _postList(),
+            _postList(),
           ],
         ));
   }
