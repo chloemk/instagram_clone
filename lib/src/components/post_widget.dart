@@ -118,29 +118,50 @@ class PostWidget extends StatelessWidget {
     );
   }
 
+  Widget _replyTextBtn() {
+    return GestureDetector(
+      onTap: () {},
+      child: const Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 15,
+        ),
+        child: Text(
+          '댓글 30개 모두 보기',
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 13,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
         top: 20,
       ),
-      child: Column(children: [
-        _header(),
-        const SizedBox(
-          height: 10,
-        ),
-        _image(),
-        const SizedBox(
-          height: 10,
-        ),
-        _infoCount(),
-        _infoDescription(),
-        const SizedBox(
-          height: 10,
-        ),
-        // _replyTextBtn(),
-        // _dateAgo(),
-      ]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          _header(),
+          const SizedBox(
+            height: 10,
+          ),
+          _image(),
+          const SizedBox(
+            height: 10,
+          ),
+          _infoCount(),
+          _infoDescription(),
+          const SizedBox(
+            height: 10,
+          ),
+          _replyTextBtn(),
+          _dateAgo(),
+        ],
+      ),
     );
   }
 }
