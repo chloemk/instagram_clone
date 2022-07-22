@@ -14,6 +14,29 @@ class Home extends StatelessWidget {
               'https://backlightblog.com/images/2020/10/blur-photo-background-header.jpg',
           size: 70,
         ),
+        // 플러스 버튼
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: Container(
+            padding: const EdgeInsets.all(2),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30), color: Colors.white),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(30),
+              child: Container(
+                color: Colors.blue,
+                height: 27,
+                width: 27,
+                child: const Icon(
+                  Icons.add,
+                  color: Colors.white,
+                  size: 20,
+                ),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }
