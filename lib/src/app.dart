@@ -63,14 +63,11 @@ class App extends GetView<BottomNavController> {
                 label: 'active',
               ),
               BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(left: 15),
-                  child: AvatarWidget(
-                    thumbPath:
-                        'https://i.pinimg.com/originals/d5/45/a2/d545a2343d19f3ce8af9e9aa52dd3fce.jpg',
-                    type: AvatarType.POSTAVATAR,
-                    size: 30,
-                  ),
+                icon: AvatarWidget(
+                  thumbPath:
+                      'https://i.pinimg.com/originals/d5/45/a2/d545a2343d19f3ce8af9e9aa52dd3fce.jpg',
+                  type: AvatarType.MYSTORYAVATAR,
+                  size: 30,
                 ),
                 label: 'user',
               ),
