@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:instagram_clone/src/components/avatar_widget.dart';
 import 'package:instagram_clone/src/components/image_data.dart';
 import 'package:instagram_clone/src/controller/bottom_nav_controller.dart';
+import 'package:instagram_clone/src/pages/home.dart';
 
 // BottomNavController에 있는 어떤 nav 컨트롤러가 인스턴스로 등록되어있을 때 접근할 수 있다.
 // BottomNavController 인스스로 올라가기 위해서는 GetX에 put 해줘야한다.
@@ -11,16 +13,14 @@ class App extends GetView<BottomNavController> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
+      onWillPop: controller.willPopAction,
       child: Obx(
         () => Scaffold(
-          appBar: AppBar(),
           // 페이지를 다양하게 처리할 수 있는 위젯
           body: IndexedStack(
             index: controller.pageIndex.value,
             children: <Widget>[
-              Container(
-                child: Center(child: Text('HOME')),
-              ),
+              const Home(),
               Container(
                 child: Center(child: Text('SEARCH')),
               ),
@@ -51,33 +51,33 @@ class App extends GetView<BottomNavController> {
               BottomNavigationBarItem(
                 icon: ImageData(IconsPath.searchOff),
                 activeIcon: ImageData(IconsPath.searchOn),
-                label: 'home',
+                label: 'search',
               ),
               BottomNavigationBarItem(
                 icon: ImageData(IconsPath.uploadIcon),
-                label: 'home',
+                label: 'upload',
               ),
               BottomNavigationBarItem(
                 icon: ImageData(IconsPath.activeOff),
                 activeIcon: ImageData(IconsPath.activeOn),
-                label: 'home',
+                label: 'active',
               ),
               BottomNavigationBarItem(
                 icon: Container(
-                    width: 30,
-                    height: 30,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey,
-                    )),
-                label: 'home',
+                  margin: const EdgeInsets.only(left: 15),
+                  child: AvatarWidget(
+                    thumbPath:
+                        'https://i.pinimg.com/originals/d5/45/a2/d545a2343d19f3ce8af9e9aa52dd3fce.jpg',
+                    type: AvatarType.POSTAVATAR,
+                    size: 30,
+                  ),
+                ),
+                label: 'user',
               ),
             ],
           ),
         ),
       ),
-      // 뒤로가기 버튼을 누르면 onWillPop이 실행된다.
-      onWillPop: controller.willPopAction,
     );
   }
 }
