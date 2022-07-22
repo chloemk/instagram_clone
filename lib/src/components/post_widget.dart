@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/src/components/avatar_widget.dart';
 import 'package:instagram_clone/src/components/image_data.dart';
@@ -26,12 +27,19 @@ class PostWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: ImageData(
                 IconsPath.postMoreIcon,
-                width: 30,
+                width: 40,
               ),
             ),
           )
         ],
       ),
+    );
+  }
+
+  Widget _image() {
+    return CachedNetworkImage(
+      imageUrl:
+          'https://b.zmtcdn.com/data/pictures/9/18427139/423c78712deb64a99571e78b55204b82_featured_v2.jpg',
     );
   }
 
@@ -43,7 +51,10 @@ class PostWidget extends StatelessWidget {
       ),
       child: Column(children: [
         _header(),
-        // _image(),
+        const SizedBox(
+          height: 15,
+        ),
+        _image(),
         // _infoCount(),
         // _infoDescription(),
         // _replyTextBtn(),
