@@ -1,7 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-enum AvatarType { STORYAVATAR, MYSTORYAVATAR, TYPE3 }
+enum AvatarType {
+  STORYAVATAR,
+  MYSTORYAVATAR,
+  POSTAVATAR,
+}
 
 class AvatarWidget extends StatelessWidget {
   bool? hasStory;
@@ -61,6 +65,21 @@ class AvatarWidget extends StatelessWidget {
     );
   }
 
+  Widget postAvatarWidget() {
+    return Row(
+      children: [
+        storyAvatarWidget(),
+        Text(
+          nickname ?? '',
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     switch (type) {
@@ -68,8 +87,8 @@ class AvatarWidget extends StatelessWidget {
         return storyAvatarWidget();
       case AvatarType.MYSTORYAVATAR:
         return myStoryAvatarWidget();
-      case AvatarType.TYPE3:
-        return Container();
+      case AvatarType.POSTAVATAR:
+        return postAvatarWidget();
     }
   }
 }
