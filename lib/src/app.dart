@@ -4,6 +4,7 @@ import 'package:instagram_clone/src/components/avatar_widget.dart';
 import 'package:instagram_clone/src/components/image_data.dart';
 import 'package:instagram_clone/src/controller/bottom_nav_controller.dart';
 import 'package:instagram_clone/src/pages/home.dart';
+import 'package:instagram_clone/src/pages/search.dart';
 
 // BottomNavController에 있는 어떤 nav 컨트롤러가 인스턴스로 등록되어있을 때 접근할 수 있다.
 // BottomNavController 인스스로 올라가기 위해서는 GetX에 put 해줘야한다.
@@ -21,9 +22,7 @@ class App extends GetView<BottomNavController> {
             index: controller.pageIndex.value,
             children: <Widget>[
               const Home(),
-              Container(
-                child: Center(child: Text('SEARCH')),
-              ),
+              const Search(),
               Container(
                 child: Center(child: Text('UPLOAD')),
               ),
