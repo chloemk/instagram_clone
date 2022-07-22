@@ -80,6 +80,29 @@ class PostWidget extends StatelessWidget {
     );
   }
 
+  Widget _infoDescription() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: const [
+          Text(
+            '좋아요 150개',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            '요즘 핫플 #No.35',
+            style: TextStyle(),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,11 +112,17 @@ class PostWidget extends StatelessWidget {
       child: Column(children: [
         _header(),
         const SizedBox(
-          height: 15,
+          height: 10,
         ),
         _image(),
+        const SizedBox(
+          height: 10,
+        ),
         _infoCount(),
-        // _infoDescription(),
+        _infoDescription(),
+        const SizedBox(
+          height: 10,
+        ),
         // _replyTextBtn(),
         // _dateAgo(),
       ]),
