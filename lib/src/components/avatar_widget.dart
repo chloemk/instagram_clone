@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-enum AvatarType { STORYAVATAR, TYPE2, TYPE3 }
+enum AvatarType { STORYAVATAR, MYSTORYAVATAR, TYPE3 }
 
 class AvatarWidget extends StatelessWidget {
   bool? hasStory;
@@ -36,21 +36,25 @@ class AvatarWidget extends StatelessWidget {
         ),
         shape: BoxShape.circle,
       ),
-      child: Container(
-        padding: const EdgeInsets.all(2),
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white,
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(size!),
-          child: SizedBox(
-            width: size,
-            height: size,
-            child: CachedNetworkImage(
-              imageUrl: thumbPath,
-              fit: BoxFit.cover,
-            ),
+      child: myStoryAvatarWidget(),
+    );
+  }
+
+  Widget myStoryAvatarWidget() {
+    return Container(
+      padding: const EdgeInsets.all(2),
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.white,
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(size!),
+        child: SizedBox(
+          width: size,
+          height: size,
+          child: CachedNetworkImage(
+            imageUrl: thumbPath,
+            fit: BoxFit.cover,
           ),
         ),
       ),
@@ -62,8 +66,8 @@ class AvatarWidget extends StatelessWidget {
     switch (type) {
       case AvatarType.STORYAVATAR:
         return storyAvatarWidget();
-        break;
-      case AvatarType.TYPE2:
+      case AvatarType.MYSTORYAVATAR:
+        return myStoryAvatarWidget();
       case AvatarType.TYPE3:
         return Container();
     }
