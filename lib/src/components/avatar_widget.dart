@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 enum AvatarType { STORYAVATAR, TYPE2, TYPE3 }
@@ -15,16 +16,15 @@ class AvatarWidget extends StatelessWidget {
     required this.thumbPath,
     this.hasStory,
     this.nickname,
-    this.size,
+    this.size = 65,
   }) : super(key: key);
 
   Widget storyAvatarWidget() {
     return Container(
-      width: 65,
-      height: 65,
       margin: const EdgeInsets.symmetric(
         horizontal: 5,
       ),
+      padding: const EdgeInsets.all(2),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topRight,
@@ -36,7 +36,24 @@ class AvatarWidget extends StatelessWidget {
         ),
         shape: BoxShape.circle,
       ),
-      child: ,
+      child: Container(
+        padding: const EdgeInsets.all(2),
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white,
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(size!),
+          child: SizedBox(
+            width: size,
+            height: size,
+            child: CachedNetworkImage(
+              imageUrl: thumbPath,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
     );
   }
 
