@@ -43,6 +43,43 @@ class PostWidget extends StatelessWidget {
     );
   }
 
+  Widget _infoCount() {
+    return Padding(
+      padding: const EdgeInsets.all(15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              ImageData(
+                IconsPath.likeOffIcon,
+                width: 70,
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              ImageData(
+                IconsPath.replyIcon,
+                width: 65,
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              ImageData(
+                IconsPath.directMessage,
+                width: 65,
+              ),
+            ],
+          ),
+          ImageData(
+            IconsPath.bookMarkOffIcon,
+            width: 60,
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,7 +92,7 @@ class PostWidget extends StatelessWidget {
           height: 15,
         ),
         _image(),
-        // _infoCount(),
+        _infoCount(),
         // _infoDescription(),
         // _replyTextBtn(),
         // _dateAgo(),
